@@ -84,7 +84,7 @@ public class Rec {
         System.out.println("The count of num "+num+" is: "+count(num));
         System.out.println("The reversed string is: "+RevString(str));
 
-        sc.close();
+
 
     }
 }
