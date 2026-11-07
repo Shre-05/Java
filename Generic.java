@@ -11,6 +11,13 @@ public class Generic {
         Gen2<Integer,String> c=new Gen2<>(100,"Good");
         System.out.println(c.getFirst());
         System.out.println(c.getSecond());
+
+        printPair("Hello",100);
+
+    }
+    // genric method:
+    public static <T,U> void printPair(T first,U second){
+        System.out.print(first+" "+second);
     }
 }
 class Gen<T>{
