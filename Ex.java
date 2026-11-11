@@ -1,23 +1,15 @@
-class Student{
-    String name;
-    int id;
-    int age;
-
-    Student(){
-
-    }
-    Student(Student s2){
-        this.name=s2.name;
-        this.id=s2.id;
-        this.age=s2.age;
-    }
-    public void display(){
-        System.out.println(name+"\n"+id+"\n"+age);
-    }
-}
-public class Ex{
+class Ex{
     public static void main(String[] args) {
-        Student s1=new Student();
-        Student s2=new Student(s1); 
+    int n=5;
+    for (int i=0;i<n;i++){
+        for (int j=0;j<n-i-1;j++){
+            System.out.print(" ");
+        }
+        for(int j=0;j<2*i-1;j++){
+            System.out.print("*");
+        }
+        System.out.println();
+    }  
     }
+    
 }

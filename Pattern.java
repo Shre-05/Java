@@ -303,4 +303,181 @@ public static void main(String[]args){
       }
       System.out.println();
     }
+    /*
+    *********
+     *******
+      *****
+       ***
+        *
+    */
+   for(int i=4;i>=0;i--){
+    for(int j=0;j<n-i-1;j++){
+      System.out.print(" ");
+    }
+    for(int j=0;j<2*i+1;j++){
+      System.out.print("*");
+    }
+    System.out.println();
+   }
+  
+   for(int i=0;i<5;i++){
+    for(int j=0;j<i;j++){
+      System.out.print(" ");
+    }
+    for(int j=0;j<2*5-(2*i+1);j++){
+      System.out.print("*");
+    }
+    for(int j=0;j<i;j++){
+      System.out.print(" ");
+    }
+    System.out.println();
+   }
+  //  diamond pattern
+  //first half
+  for(int i=0;i<5;i++){
+    for(int j=0;j<5-1-i;j++){
+      System.out.print(" ");
+    }
+    for(int j=0;j<2*i+1;j++){
+      System.out.print("*");
+    }
+    System.out.println();
+  }
+  // second half
+  for(int i=0;i<5;i++){
+    for (int j=0;j<i;j++){
+      System.out.print(" ");
+    }
+    for(int j=0;j<2*5-(2*i+1);j++){
+      System.out.print("*");
+    }
+    for (int j=0;j<i;j++){
+      System.out.print(" ");
+    }
+    System.out.println();
+  }
+
+  /*
+  *
+  **
+  ***
+  ****
+  *****
+  ****
+  ***
+  **
+  *
+  
+  */
+//  first half
+ for(int i=1;i<=5;i++){
+  for(int j=1;j<=i;j++){
+    System.out.print("*");
+  }
+  for(int j=1;j<=5-i;j++){
+    System.out.print(" ");
+  }
+  System.out.println();
+ }
+//  second half
+ for(int i=1;i<=5;i++){
+  for(int j=1;j<=5-i;j++){
+    System.out.print("*");
+  }
+  for(int j=1;j<=i;j++){
+    System.out.print(" ");
+  }
+  System.out.println();
+ }
+
+ /*
+ 1
+ 01
+ 101
+ 0101
+ 10101 */
+ for(int i=1;i<=5;i++){
+  for(int j=1;j<=i;j++){
+    if((i+j)%2==0){
+      System.out.print(1);
+    }
+    else{
+      System.out.print(0);
+    }
+  }
+  System.out.println();
+ }
+
+ /*
+ 1      1
+ 12    21
+ 123  321
+ 12344321 */
+ for(int i=1;i<=4;i++){
+  // num
+  for(int j=1;j<=i;j++){
+    System.out.print(j);
+  }
+  // space
+  for(int j=1;j<=2*4-2*i;j++){
+    System.out.print(" ");
+  }
+  // num
+  for(int j=i;j>=1;j--){
+    System.out.print(j);
+  }
+  System.out.println();
+ }
+int number=1;
+for(int i=1;i<=5;i++){
+  for(int j=1;j<=i;j++){
+    System.out.print(number+" ");
+    number+=1;
+  }
+  System.out.println();
+ }
+
+ /*
+ A
+ AB
+ ABC
+ ABCD
+ ABCDE */
+
+ for(int i=1;i<=5;i++){
+  for(char ch='A';ch<'A'+i;ch++){
+    System.out.print(ch+" ");
+  }
+  System.out.println();
+ }
+
+/*
+ABCDE
+ABCD
+ABC
+AB
+A */
+System.out.println();
+for(int i=0;i<5;i++){
+  for(char ch='A';ch<='A'+(5-i-1);ch++){
+    System.out.print(ch+" ");
+  }
+  System.out.println();
+}
+
+/*
+A
+BB
+CCC
+DDDD
+EEEEE */
+for(int i=0;i<5;i++){
+  char ch=(char)('A'+i);
+  for(int j=0;j<=i;j++){
+    System.out.print(ch+" ");
+  }
+  System.out.println();
+}
 }}
+
+
