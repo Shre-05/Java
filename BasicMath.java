@@ -11,6 +11,7 @@ public class BasicMath {
         d.findDivisor(36);
         d.checkPrime(88);
         d.findGCD(11, 10);
+        d.findLCM(15, 18);
 
     }
 
@@ -146,5 +147,26 @@ class Digit{
             System.out.println("GCD is: "+a);
     }
 }
+    private int calGcd(int a,int b){
+        while(a>0 && b>0){
+            if(a>b){
+                a%=b;
+            }
+            else{
+                b%=a;
+            }
+        }
+        if(a==0){
+            return b;
+        }
+        else{
+            return a;
+        }
+    }
+    void findLCM(int a,int b){
+        int gcd=calGcd(a,b);
+        int LCM=(a*b)/gcd;
+        System.out.println("LCM is: "+LCM);
+    }
 }
 
