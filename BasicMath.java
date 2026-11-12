@@ -12,6 +12,12 @@ public class BasicMath {
         d.checkPrime(88);
         d.findGCD(11, 10);
         d.findLCM(15, 18);
+        d.countOddDigit(1637);
+        d.findLargestdigit(637648);
+        System.out.println(d.factorial(5));
+        d.isPerfectNumber(6);
+        System.out.println(d.countPrimes(5));
+        
 
     }
 
@@ -168,5 +174,93 @@ class Digit{
         int LCM=(a*b)/gcd;
         System.out.println("LCM is: "+LCM);
     }
+
+    void countOddDigit(int num){
+        int count=0;
+        while(num>0){
+            int lastdigit=num%10;
+            if(lastdigit%2!=0){
+                count++;
+            }
+            num/=10;
+            
+        }
+        System.out.println("count of odd digits:"+count);
+    }
+
+    void findLargestdigit(int num){
+        int largest=0;
+        while(num>0){
+            int lastdigit=num%10;
+            num/=10;
+            if(lastdigit>largest){
+                largest=lastdigit;
+            }
+        }
+        System.out.println("Largest digit of a num is: "+largest);
+    }
+
+    int factorial(int num){
+        int fact=1;
+        if(num==0||num==1){
+            return 1;
+        }
+        int factnm1=factorial(num-1);
+        fact=num*factnm1;
+
+        return fact;
+    }
+
+    void isPerfectNumber(int num){
+        int sum=0;
+        int temp=num;
+
+        for(int i=1;i*i<=num;i++){
+            if(num%i==0){
+                sum+=i;
+                if(num/i!=i){
+                    sum+=i;
+                }
+            }
+
+        }
+        if(temp==sum){
+            System.out.println("The num "+num+" is perfect");
+        }
+        else{
+            System.out.println("The num "+num+" is not perfect.");
+        }
+    }
+
+    // Sieve of Eratosthenes: count prime nums till n(less than n strictly)
+
+    public int countPrimes(int n) {
+        // if num is already less than 2
+        if(n<2){
+            return 0;
+        }
+        boolean[] isPrime=new boolean[n+1];
+        // mark all as true
+        for(int i=2;i<n;i++){
+            isPrime[i]=true;
+        }
+        // eliminate multiple of i
+        for(int i=2;i<=(n-1)/i;i++){
+            if(isPrime[i]){
+                for(int j=i*i;j<n;j+=i){ //Multiple of i
+                    isPrime[j]=false;
+                }
+            }
+        }
+        int count=0;
+        // count the prime nums: 
+        for(int i=2;i<n;i++){
+            if(isPrime[i]){
+                count++;
+            }
+        }
+        return count;
+    }
+
 }
 
