@@ -1,21 +1,21 @@
-import java.util.Scanner;
+class Array{
+    public static void main(String[] args) {
+        int[] arr={2,4,2,1,3,8};
+        int left=0;
+        int right=arr.length-1;
 
-public class Array {
-    public static void main(String[]args){
-        Scanner sc=new Scanner(System.in);
-        // 1D array:
-        int [] marks=new int[3];
-            // adding elments using loop
-        for (int i=0;i<marks.length;i++){
-            marks[i]=sc.nextInt();
-        }
-            // print array elements:
-        System.out.println("You array elements re:");
-        for (int i=0;i<marks.length;i++){
-            System.out.println(marks[i]);
-        }
+        while(left<right){
+            int temp=arr[left];
+            arr[left]=arr[right];
+            arr[right]=temp;
 
+            left++;
+            right--;
+        }
+        int i=0;
+        while(i<arr.length){
+            System.out.print(arr[i]+" ");
+            i+=1;
+        }
     }
 }
-
-
