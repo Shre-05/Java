@@ -1,4 +1,4 @@
-class Ex{
+class sorting{
     public static void main(String[] args) {
         Sort s=new Sort();
         s.selectionSort();
