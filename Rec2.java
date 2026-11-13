@@ -1,5 +1,5 @@
 import java.util.*;
-public class Ex {
+public class Rec2 {
     public static void main(String[] args) {
         Recursion r=new Recursion();
         r.printName(5);
@@ -40,6 +40,15 @@ public class Ex {
 
         int[] arr5={3,1,2};
         r.printSubsequences(arr5, 0, new ArrayList<>());
+
+        System.out.println();
+        int [] arr6={1,1,2};
+        r.printSubsequencesOfSum(arr6, 0, new ArrayList<>(), 0);
+        System.out.println();
+        r.printOneSubsequence(arr6, 0, new ArrayList<>(), 0);
+
+        int res=r.countSubsequences(arr6, 0, new ArrayList<>(), 0);
+        System.out.println(res);
     }
 }
 class Recursion{
@@ -183,4 +192,67 @@ class Recursion{
         // not to pick
         printSubsequences(arr, index+1, Current);
     }
+
+    void printSubsequencesOfSum(int arr[],int i,ArrayList<Integer>Current,int sum){
+        if(i==arr.length){
+            if(sum==2){
+                System.out.println(Current);
+            }
+            return;
+        }
+        Current.add(arr[i]);
+        sum+=arr[i];
+        printSubsequencesOfSum(arr, i+1, Current, sum);
+
+        Current.remove(Current.size()-1);
+        sum-=arr[i];
+
+        printSubsequencesOfSum(arr, i+1, Current, sum);
+    
+    }
+
+    boolean printOneSubsequence(int arr[],int i,ArrayList<Integer>Current,int sum){
+        if(i==arr.length){
+            if(sum==2){
+                System.out.println(Current);
+                return true;
+            }
+            return false;
+        }
+        Current.add(arr[i]);
+        sum+=arr[i];
+        if(printOneSubsequence(arr, i+1, Current, sum)){
+            return true;
+        }
+
+        Current.remove(Current.size()-1);
+        sum-=arr[i];
+
+        if(printOneSubsequence(arr, i+1, Current, sum)){
+            return true;
+        }
+        return false;
+    
+    }
+
+    // Count the subseq whose sum is k
+    int countSubsequences(int[] arr,int i,ArrayList<Integer>Current,int sum){
+        if(i==arr.length){
+            if(sum==2){
+                return 1;
+            }
+            return 0;
+        }
+
+        sum+=arr[i];
+        int l=countSubsequences(arr, i+1, Current, sum);
+        sum-=arr[i];
+        int r=countSubsequences(arr, i+1, Current, sum);
+
+        return l+r;
+
+
+    }
+
+
 }

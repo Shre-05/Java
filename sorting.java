@@ -1,9 +1,15 @@
+import java.util.*;
 class sorting{
     public static void main(String[] args) {
         Sort s=new Sort();
         s.selectionSort();
         s.bubbleSort();
         s.insertionSort();
+        int []arr={83,4,6,7,3,45,8,4,32,7,9};
+        System.out.println("Merge Sort");
+        s.mergeSort(arr, 0, arr.length-1);
+        s.printArray(arr);
+
     }
 }
 
@@ -66,5 +72,48 @@ class Sort{
             arr[j+1]=key;
         }
         print(arr);
+    }
+
+    void mergeSort(int arr[],int low,int high){
+        if(low>=high){
+            return ;
+        }
+        int mid=(low+high)/2;
+        mergeSort(arr, low, mid);
+        mergeSort(arr, mid+1, high);
+        merge(arr,low,mid,high);
+        
+    }
+    void merge(int[]arr,int low,int mid,int high){
+        int left=low;
+        int right=mid+1;
+        ArrayList<Integer>temp=new ArrayList<>();
+
+        while(left<=mid && right<=high){
+            if(arr[left]<=arr[right]){
+                temp.add(arr[left]);
+                left++;
+            }
+            else{
+                temp.add(arr[right]);
+                right++;
+            }
+        }
+        while(left<=mid){
+            temp.add(arr[left]);
+            left++;
+        }
+        while(right<=high){
+            temp.add(arr[right]);
+            right++;
+        }
+
+        for (int i = 0; i < temp.size(); i++) {
+            arr[low + i] = temp.get(i);
+        }
+
+    }
+    void printArray(int arr[]) {
+        System.out.println(Arrays.toString(arr));
     }
 }
