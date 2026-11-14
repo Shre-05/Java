@@ -10,6 +10,11 @@ class sorting{
         s.mergeSort(arr, 0, arr.length-1);
         s.printArray(arr);
 
+        // quick sort
+        System.out.println("Quicksort");
+        int[] arr2={6,5,8,3,7,83,8,2,5};
+        s.quicksort(arr2, 0, arr2.length-1);
+
     }
 }
 
@@ -115,5 +120,38 @@ class Sort{
     }
     void printArray(int arr[]) {
         System.out.println(Arrays.toString(arr));
+    }
+
+    // quick Sort
+    void quicksort(int[]arr,int low, int high){
+        if(low<high){
+            int pIndex=partition(arr,low,high);
+            quicksort(arr, low, pIndex-1);
+            quicksort(arr, pIndex+1, high);
+            print(arr);
+        }
+    }
+    int partition(int arr[],int high,int low){
+        int pivot=arr[low];
+        int i=low;
+        int j=high;
+
+        while(i<j){
+            while(arr[i]<=pivot && i<=high-1){
+                i++;
+            }
+            while(arr[j]>=pivot && j>=low+1){
+                j++;
+            }
+            int temp=arr[i];
+            arr[i]=arr[j];
+            arr[j]=temp;
+        }
+        int temp=arr[low];
+        arr[low]=arr[j];
+        arr[j]=temp;
+
+        return j;
+
     }
 }
